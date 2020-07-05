@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -13,4 +14,18 @@
         android:layout_height="wrap_content"
         android:text="첫번째 화면으로 이동 하기"/>
 
+    <EditText
+        android:id="@+id/messageEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="전달할 메세지를 입력 해주세요"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/sendToSecondBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="두번째 화면으로 메세지 전달 하기"
+        />
 </LinearLayout>
