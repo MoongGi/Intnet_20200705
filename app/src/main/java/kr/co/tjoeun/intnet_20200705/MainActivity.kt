@@ -75,6 +75,16 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtra("sms_body",inputMsg)
             startActivity(myIntent)
         }
+
+        naverLinkBtn.setOnClickListener {
+            val myUrl = Uri.parse("https://naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUrl)
+            startActivity(myIntent)
+        }
+
+        kakaoStoreLinkBtn.setOnClickListener {
+
+        }
     }
 
     // MainActivity로 복귀하는 모든 시점에 실행되는 함수
