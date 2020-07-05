@@ -16,7 +16,7 @@ class EditNickNameActivity : AppCompatActivity() {
 
         // 완료 버튼을 눌러야 완료.
         okBtn.setOnClickListener {
-            val newNickName = nickNameTxt.text.toString()
+            val newNickName = newNickNameEdt.text.toString()
             //복귀에 사용할 intent (결과를 담기 위한 용도 )
             //출발지 / 목적지를 기재 하지 않음
             val resultIntent = Intent()

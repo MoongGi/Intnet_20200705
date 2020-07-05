@@ -1,5 +1,6 @@
 package kr.co.tjoeun.intnet_20200705
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,4 +37,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // MainActivity로 복귀하는 모든 시점에 실행되는 함수
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        //어떤걸 가지러 다녀온건지 확인 (닉네임 인지)
+        if(requestCode == 1000)
+        {
+            //완료를 누른게 맞는지
+            if(resultCode == Activity.RESULT_OK)
+            {
+                //결과로  받아온 값을 텍스트뷰에 적용
+                val newNickName = data?.getStringExtra("nick")
+
+                nickNameTxt.text = newNickName
+            }
+        }
+    }
 }
