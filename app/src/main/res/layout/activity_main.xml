@@ -56,4 +56,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="다이얼" />
+
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="콜" />
+
+    <EditText
+        android:id="@+id/smsContentEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="문자 보낼 내용"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/sendSmsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="문자보내기 (SEND TO)" />
 </LinearLayout>
