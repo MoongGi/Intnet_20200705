@@ -25,6 +25,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
+        changeNickBtn.setOnClickListener {
+            val myIntent = Intent(this, EditNickNameActivity::class.java)
+            //화면 이동 => 단순 조회 이동 x
+            //데이터를 받으러 (결과를 얻으러) 가는 이동
+            //받을 데이터 (요청) 구별 고유 숫자 : requestCode
+            //어떤 결과 => 새 닉네임을 얻으러
+            startActivityForResult(myIntent, 1000)
+        }
+
     }
 
 }
