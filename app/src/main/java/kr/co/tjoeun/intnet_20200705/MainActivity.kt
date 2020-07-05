@@ -2,8 +2,10 @@ package kr.co.tjoeun.intnet_20200705
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         moveToFirstBtn.setOnClickListener {
             //출발 -> 도착지)
-            val myIntent = Intent(this,  FirstActivity::class.java)
+            val myIntent = Intent(this, FirstActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
             //화면 이동
             val myIntent = Intent(this, SecondActivity::class.java)
-            myIntent.putExtra("message",message)
+            myIntent.putExtra("message", message)
             startActivity(myIntent)
         }
 
@@ -35,6 +37,19 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(myIntent, 1000)
         }
 
+        //전화걸기 다이얼
+        dialBtn.setOnClickListener {
+            //입력된 전화번호를 받아오자.
+
+            val inputPhonNum = phoneNumEdt.text.toString()
+
+            // 안드로이드 에게, 어디에 전화걸지 정보 전달 => URL
+            // 전화 URL양식 - tel:010-5112-3237
+            val myUrl = Uri.parse("tel:${inputPhonNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUrl)
+            startActivity(myIntent)
+        }
+
     }
 
     // MainActivity로 복귀하는 모든 시점에 실행되는 함수
@@ -43,14 +58,11 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         //어떤걸 가지러 다녀온건지 확인 (닉네임 인지)
-        if(requestCode == 1000)
-        {
+        if (requestCode == 1000) {
             //완료를 누른게 맞는지
-            if(resultCode == Activity.RESULT_OK)
-            {
+            if (resultCode == Activity.RESULT_OK) {
                 //결과로  받아온 값을 텍스트뷰에 적용
                 val newNickName = data?.getStringExtra("nick")
-
                 nickNameTxt.text = newNickName
             }
         }
